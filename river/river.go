@@ -192,6 +192,17 @@ func (r *River) parseSource() (map[string][]string, error) {
 }
 
 func (r *River) prepareTableRule(db string, table string) error {
+	var rule_exist bool
+	for _, rule := range r.c.Rules {
+		if rule.Table == table {
+			rule_exist = true
+		}
+	}
+	if !rule_exist {
+		log.Infof("prepare table rule error: table %s not exist", table)
+		return nil
+	}
+
 	t, err := r.canal.GetTable(db, table)
 	if err != nil {
 		return err
