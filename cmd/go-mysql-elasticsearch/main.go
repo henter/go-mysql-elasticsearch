@@ -8,7 +8,7 @@ import (
 	"syscall"
 
 	"github.com/juju/errors"
-	"github.com/siddontang/go-mysql-elasticsearch/river"
+	"github.com/henter/go-mysql-elasticsearch/river"
 	log "github.com/sirupsen/logrus"
 )
 
